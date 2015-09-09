@@ -8,7 +8,7 @@ if (isset($_GET['name']) && !empty($_GET['name'])) {
 }
 
 if ($id == "1") {
-    $url = "https://samweb.spacialaudio.com/webapi/station/69408/history?token=3e6d3effbe031d1d6324b7c2775e22d08c5e37cb&top=1000&format=json&callback=cb&_1441813327911=";
+    $url = "https://samweb.spacialaudio.com/webapi/station/69408/history?token=3e6d3effbe031d1d6324b7c2775e22d08c5e37cb&top=1000&format=json";
 } else {
     echo "BAD CODE PROVIDED<br />\n";
     return;
@@ -18,7 +18,7 @@ $user_timezone = 'Canada/Saskatchewan';
 date_default_timezone_set('Canada/Saskatchewan');  
 
 $raw = get_data($url);
-$json = json_decode(substr($raw,3,strlen($raw) - 5));
+$json = json_decode($raw);
 $data = parse($json);
 
 echo "<table id=\"resultstbl\">\n";
@@ -74,7 +74,7 @@ function parse($data) {
         } else {
             $artists[$artist]['count'] = 1;
         }
-        a
+        
         $artists[$artist]['lastplayed'] = parseJsonDate($val->DatePlayed)->format('g:iA');
         
         if (array_key_exists($artist_song,$retArray)) {
