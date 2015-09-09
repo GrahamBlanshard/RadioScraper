@@ -41,17 +41,11 @@ echo "</table>\n";
 function get_data($url) {  
   
   $ch = curl_init();
-  echo "HELLO";
   $timeout = 5;
-  echo "HELLO";
   curl_setopt($ch, CURLOPT_URL, $url);
-  echo "HELLO";
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  echo "HELLO";
   curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-  echo "HELLO";
   $data = curl_exec($ch);
-  echo "HELLO";
   curl_close($ch);
   
   return parse($data);
@@ -137,7 +131,7 @@ function parse($data) {
     arsort($artists);
     
     echo "Total Songs: " . $songs . "<br />";
-    echo "Total unique songs: " . $uniqueSongs . "<br />";
+    echo "Total unique songs: " . $uniqueSongs . " (" . sprintf("%d",$uniqueSongs / $songs * 100) . "%)<br />";
     echo "Total unique artists: " . count($artists) . "<br />";
     
     $artistOverplay = array_keys($artists);  
