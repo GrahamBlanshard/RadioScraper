@@ -107,7 +107,7 @@ function parse($data) {
     arsort($artists);
     
     echo "Total Songs: " . $songs . "<br />";
-    echo "Total unique songs: " . $uniqueSongs . "<br />";
+    echo "Total unique songs: " . " (" . sprintf("%d",$uniqueSongs / $songs * 100) . "%)<br />";
     echo "Total unique artists: " . count($artists) . "<br />";
     
     $artistOverplay = array_keys($artists);  
