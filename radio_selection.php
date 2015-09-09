@@ -24,6 +24,13 @@ function newScrape(stationID) {
     MakeRequest(url);
 }
 
+function jsonScrape(stationID) {
+    var url= "jsonScraper.php?name=" + stationID;
+    document.getElementById('list').innerHTML = "<i>Fetching...</i>";
+    document.getElementById('list').removeAttribute("style",0);
+    MakeRequest(url);
+}
+
 function forceScrape(buttonID) {
     var form = document.getElementById('selection');
     var type = 1;
@@ -59,6 +66,9 @@ function forceScrape(buttonID) {
     } else if (buttonID == 'x929') {
         type = 2;
         type_station = 3;
+    } else if (buttonID == 'QCIndie') {
+        type = 3;
+        type_station=1;
     }
     else {
         form.station_id.value="43211234";
@@ -67,8 +77,10 @@ function forceScrape(buttonID) {
 
     if (type === 1) {
         scrape(form);
-    } else {
+    } else if (type === 2) {
         newScrape(type_station);
+    } else if (type === 3) {
+        jsonScrape(type_station);
     }
 }
 
@@ -126,17 +138,18 @@ function MakeRequest(url) {
     <p><b>Regina</b></p>
     <input type="button" name="WOLF" value="The Wolf" onClick="forceScrape('theWolf')" />
     <input type="button" name="Z99" value="Z99" onClick="forceScrape('z99')" />
-    <input type="button" name="lite92" value="Lite 92.1" onClick="forceScrape('lite92')" />
+    <!--<input type="button" name="lite92" value="Lite 92.1" onClick="forceScrape('lite92')" />-->
     <input type="button" name="CKRM" value="620 CKRM" onClick="forceScrape('CKRM')" />
+    <input type="button" name="QCIndie" value="QCIndie" onClick="forceScrape('QCIndie')" />
     <p><b>Saskatoon</b></p>
     <input type="button" name="C95" value="C95" onClick="forceScrape('C95')" />
     <input type="button" name="Magic983" value="Magic 98.3" onClick="forceScrape('magic')" />
     <input type="button" name="cjww" value="CJWW 98.3" onClick="forceScrape('cjww')" />
     <input type="button" name="bull" value="The Bull 92.9" onClick="forceScrape('bull')" />
-    <p><b>Edmonton</b></p>
+    <!--<p><b>Edmonton</b></p>
     <input type="button" name="lite957" value="Lite 95.7" onClick="forceScrape('lite957')" />
     <p><b>Calgary</b></p>
-    <input type="button" name="x929" value="X92.9" onClick="forceScrape('x929')" />    
+    <input type="button" name="x929" value="X92.9" onClick="forceScrape('x929')" />-->    
   </form>
   <hr />
   <div>
