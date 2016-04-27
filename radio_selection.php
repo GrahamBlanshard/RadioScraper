@@ -69,6 +69,9 @@ function forceScrape(buttonID) {
     } else if (buttonID == 'QCIndie') {
         type = 3;
         type_station=1;
+    } else if (buttonID == 'CKCK') {
+        form.station_id.value = "6692";
+        form.station_name.value = "CKCK";
     }
     else {
         form.station_id.value="43211234";
@@ -141,6 +144,7 @@ function MakeRequest(url) {
     <!--<input type="button" name="lite92" value="Lite 92.1" onClick="forceScrape('lite92')" />-->
     <input type="button" name="CKRM" value="620 CKRM" onClick="forceScrape('CKRM')" />
     <input type="button" name="QCIndie" value="QCIndie" onClick="forceScrape('QCIndie')" />
+    <input type="button" name="CKCK" value="94.5 JackFM" onClick="forceScrape('CKCK')" />
     <p><b>Saskatoon</b></p>
     <input type="button" name="C95" value="C95" onClick="forceScrape('C95')" />
     <input type="button" name="Magic983" value="Magic 98.3" onClick="forceScrape('magic')" />
@@ -152,11 +156,11 @@ function MakeRequest(url) {
     <input type="button" name="x929" value="X92.9" onClick="forceScrape('x929')" />-->    
   </form>
   <hr />
-  <div>
+  <!--<div>
   <p style="font-size: 10px;"> 
   This is a scrape of radio song data made available by the host sites who use the <a href="bdsrealtime.com"><i>Nielsen BDS</i></a> service. 
   Song lists are typically a compilation of the last 12 hours. Any songs that aren't correct are usually the radio station reporting weird segments
-  </p></div>
+  </p></div>-->
 </div>
 
 <div id="list" class="results" style="visibility: hidden;">
