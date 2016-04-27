@@ -72,6 +72,9 @@ function forceScrape(buttonID) {
     } else if (buttonID == 'CKCK') {
         form.station_id.value = "6692";
         form.station_name.value = "CKCK";
+    } else if (buttonID == 'Rock102') {
+        form.station_id.value="5493";
+        form.station_name.value="CJDJ";
     }
     else {
         form.station_id.value="43211234";
@@ -150,6 +153,11 @@ function MakeRequest(url) {
     <input type="button" name="Magic983" value="Magic 98.3" onClick="forceScrape('magic')" />
     <input type="button" name="cjww" value="CJWW 98.3" onClick="forceScrape('cjww')" />
     <input type="button" name="bull" value="The Bull 92.9" onClick="forceScrape('bull')" />
+    <input type="button" name="Rock102" value="Rock 102" onClick="forceScrape('Rock102')" />
+    <!--
+    <p><b>Prince Albert</b></p>
+    <input type="button" name="mix101" value="Mix 101" onClick="forceScrape('mix101')" />
+    -->
     <!--<p><b>Edmonton</b></p>
     <input type="button" name="lite957" value="Lite 95.7" onClick="forceScrape('lite957')" />
     <p><b>Calgary</b></p>
